@@ -1,0 +1,1 @@
+# Standard library microservice - zero heavy dependencies for sub-5ms latency

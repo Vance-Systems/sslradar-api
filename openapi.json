@@ -1,0 +1,54 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "SSLRadar - TLS Certificate Expiration & Security Audit API",
+    "version": "1.0.0",
+    "description": "Automated SSL/TLS certificate health, cipher audit, and expiration countdown."
+  },
+  "servers": [
+    {
+      "url": "https://sslradar-api.onrender.com"
+    }
+  ],
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "Health Check",
+        "responses": {
+          "200": {
+            "description": "Service healthy"
+          }
+        }
+      }
+    },
+    "/v1/ssl/audit": {
+      "post": {
+        "summary": "Audit Host SSL/TLS Certificate",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "host": {
+                    "type": "string",
+                    "example": "github.com"
+                  }
+                },
+                "required": [
+                  "host"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "SSL audit report"
+          }
+        }
+      }
+    }
+  }
+}
